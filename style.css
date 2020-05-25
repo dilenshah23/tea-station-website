@@ -1,0 +1,517 @@
+/* Imported Font Family */
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Grand+Hotel&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* This will hide the sidebars on your browser thus no movement */
+/* html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+} */
+
+/* Setting all root variables to be used in other elements */
+:root {
+  --slanted-text: "Grand Hotel", cursive;
+  --primary-color: #698f3f;
+  --secondary-color: #fca311;
+  --main-dark: #3a3e3b;
+  --main-white: #fff;
+  --main-grey: #e5e5e5;
+  --main-transition: all 0.3s ease-in-out;
+  --letter-spacing: 0.5rem;
+}
+
+body {
+  font-family: "Catamaran", sans-serif;
+  line-height: 1.5;
+}
+
+/* helper/utility classes, these can be used to apply changes to classes*/
+a {
+  text-decoration: none;
+}
+.text-white {
+  color: var(--main-white);
+}
+.text-center {
+  text-align: center;
+}
+.text-primary {
+  color: var(--primary-color);
+}
+
+/* clearfix, use this everytime we use float in css to avoid jumping text or elements*/
+.clear-fix::after,
+.clear-fix::before {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* globals */
+.section-center {
+  padding: 4rem 0;
+  width: 80vw;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  font-size: 2rem;
+  font-family: var(--slanted-text);
+  letter-spacing: var(--letter-spacing);
+  text-transform: capitalize;
+  color: var(--primary-color);
+}
+
+.section-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+/* nav btn */
+.nav-btn {
+  color: var(--primary-color);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 1rem 1.3rem;
+  font-size: 2rem;
+  animation: nav-bounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* nav btn animation  */
+@keyframes nav-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: var(--main-grey);
+  padding-top: 1rem;
+  padding-left: 2rem;
+  transition: var(--main-transition);
+  /* transform */
+  transform: translateX(-100%);
+}
+
+.show-nav {
+  transform: translateX(0);
+}
+
+.nav-close {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-items {
+  list-style-type: none;
+}
+
+.nav-link {
+  display: block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  transition: var(--main-transition);
+}
+
+.nav-link:hover {
+  color: var(--main-dark);
+  padding-left: 0.5rem;
+  /* transform: translateX(0.5rem); */
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    width: 30vw;
+    max-width: 20rem;
+  }
+}
+
+/* headers */
+header {
+  min-height: 100vh; /* Shows 100% in the screen */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/main-bcg.jpeg") center/cover no-repeat fixed;
+  position: relative;
+}
+/* banner */
+.banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  letter-spacing: var(--letter-spacing);
+}
+
+.banner-subtitle {
+  font-size: 2rem;
+  font-family: var(--slanted-text);
+  color: var(--primary-color);
+  animation: text-slide-right 5s ease-in-out 1;
+}
+
+.banner-title {
+  text-transform: uppercase;
+  font-size: 3.2rem;
+  color: var(--main-white);
+  margin-top: 2.5rem;
+  line-height: 1.3;
+  animation: text-slide-left 5s ease-in-out 1;
+}
+
+.main-btn,
+.banner-btn {
+  text-transform: uppercase;
+  display: inline-block;
+  background: var(--primary-color);
+  padding: 0.8rem 1.2rem;
+  color: var(--main-dark);
+  font-weight: bold;
+  outline: 0.2rem solid var(--primary-color);
+  outline-offset: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: var(--main-transition);
+}
+
+.main-btn:hover,
+.banner-btn:hover {
+  color: var(--main-white);
+  opacity: 0.7;
+}
+.banner-btn {
+  padding: 1.2rem 1.5rem;
+  /* animation */
+  animation: explore-anim 5s ease-in-out 1;
+}
+/* end header */
+
+/* header animations */
+@keyframes explore-anim {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes text-slide-right {
+  0% {
+    transform: translateX(1000px);
+  }
+  50% {
+    transform: translateX(-250px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes text-slide-left {
+  0% {
+    transform: translateX(-1000px);
+  }
+  50% {
+    transform: translateX(250px);
+  }
+  75% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* end of header animations */
+
+/* content divider */
+.content-divider {
+  height: 0.5rem;
+  background: linear-gradient(
+    to left,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+}
+/* end of content divider */
+
+/* skill section */
+.skills-section {
+  background: var(--main-grey);
+}
+
+.skill {
+  padding: 2.5rem 0;
+  text-align: center;
+  transition: var(--main-transition);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: var(--main-transition);
+  display: inline-block;
+}
+
+.skill-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: var(--main-transition);
+}
+
+.skill-text {
+  max-width: 13rem;
+  margin: 0 auto;
+}
+
+.skill:hover {
+  background: var(--primary-color);
+}
+
+/* Adding skill-title to the whole skill block to create the transition effect */
+.skill:hover .skill-title {
+  color: var(--main-white);
+}
+
+/* Adding skill-icon to the whole skill block to create the transition effect */
+.skill:hover .skill-icon {
+  transform: translateY(-1rem);
+}
+
+/* Changing the size of each skill to create 2 columns thus using width as 50% */
+@media screen and (min-width: 576px) {
+  .skill {
+    float: left;
+    width: 50%;
+  }
+}
+
+/* Changing the size of each skill when screen is bigger to create 4 columns thus using width as 25% */
+@media screen and (min-width: 1200px) {
+  .skill {
+    width: 25%;
+  }
+}
+/* end of skill section */
+
+/* about */
+.about-img,
+.about-info {
+  padding: 2rem 0;
+}
+
+.about-picture-container {
+  background: var(--primary-color);
+  border: 0.5rem solid var(--primary-color);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.about-picture {
+  width: 100%;
+  display: block;
+  transition: var(--main-transition);
+}
+
+.about-picture-container:hover .about-picture {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+.about-text {
+  margin: 1rem 0;
+  max-width: 26rem;
+}
+
+@media screen and (min-width: 992px) {
+  .about-img,
+  .about-info {
+    float: left;
+    width: 50%;
+    padding: 2rem;
+  }
+}
+/* end of about */
+
+/* products */
+.products {
+  background: var(--main-dark);
+}
+
+.products-info,
+.products-inventory {
+  padding: 2rem 0;
+}
+.product-text {
+  color: var(--main-white);
+  margin: 1rem 0;
+  max-width: 26rem;
+}
+
+.product {
+  padding: 2rem 0;
+}
+
+.product-img {
+  width: 100%;
+  display: block;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.product-title {
+  color: var(--main-white);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  color: var(--primary-color);
+  letter-spacing: var(--letter-spacing);
+  font-family: var(--slanted-text);
+}
+
+@media screen and (min-width: 768px) {
+  .product {
+    float: left;
+    width: 50%;
+    padding: 2rem 1rem;
+  }
+  .products-info {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product {
+    width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .products-info {
+    float: left;
+    width: 30%;
+  }
+  .products-inventory {
+    float: left;
+    width: 70%;
+  }
+  .product {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+}
+/* end of products */
+
+/* contact */
+.contact {
+  padding-top: 2rem;
+}
+
+.contact-item {
+  margin-bottom: 3rem;
+}
+
+.contact-title {
+  color: var(--primary-color);
+  letter-spacing: calc(var(--letter-spacing) * 2);
+  text-transform: uppercase;
+  font-family: var(--slanted-text);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-text {
+  text-transform: uppercase;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  outline: none;
+  margin: 2rem 0;
+  padding: 1.3rem 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.form-control::placeholder {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+}
+
+@media screen and (min-width: 992px) {
+  .contact-info,
+  .contact-form {
+    float: left;
+    width: 50%;
+    padding: 0 1rem;
+  }
+  .contact-info {
+    padding-top: 5rem;
+  }
+}
+/* end of contact */
+
+/* footer */
+footer {
+  background: var(--main-dark);
+  text-align: center;
+}
+
+.social-icon {
+  color: var(--main-white);
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  transition: var(--main-transition);
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+}
+
+.footer-text {
+  text-transform: uppercase;
+  color: var(--main-white);
+  letter-spacing: var(--letter-spacing);
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+/* end of footer */
